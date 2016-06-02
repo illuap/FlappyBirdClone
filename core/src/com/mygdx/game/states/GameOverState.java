@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -39,17 +38,8 @@ public class GameOverState extends State{
         //----------------------------------------
         //-Generate the font used for the scoring
         //----------------------------------------
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("FlappyBirdy.TTF"));
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 18;
-        parameter.borderColor = Color.BLACK;
-        parameter.borderWidth = 2;
-        //smoothing out the font
-        parameter.minFilter = Texture.TextureFilter.Nearest;
-        parameter.magFilter = Texture.TextureFilter.MipMapLinearNearest;
-        font = generator.generateFont(parameter);
+        font = new BitmapFont(Gdx.files.internal("FlappyBirdy.fnt"));
         font.setUseIntegerPositions(false); //smoother placement
-        generator.dispose();
 
 
 
